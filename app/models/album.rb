@@ -1,7 +1,3 @@
-class Album
-  include Mongoid::Document
-
+class Album < ActiveRecord::Base
   has_many :photos
-
-
 end
