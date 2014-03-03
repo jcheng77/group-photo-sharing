@@ -1,8 +1,7 @@
-class Photo 
+class Album
   include Mongoid::Document
 
-  belongs_to :album
-
+  has_many :photos
 
 
 end
