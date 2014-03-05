@@ -9,11 +9,6 @@
 
 <% @photos.each do |photo| %>
   <tr><%= image_tag photo.file.url(:medium) %></tr>
-  <tr>
-    <td><%= link_to 'Show', photo %></td>
-    <td><%= link_to 'Edit', edit_photo_path(photo) %></td>
-    <td><%= link_to 'Destroy', photo, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
 <% end %>
 </table>
 

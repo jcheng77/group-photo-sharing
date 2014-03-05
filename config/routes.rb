@@ -1,7 +1,5 @@
 Groupphoto::Application.routes.draw do
-  resources :albums
 
-  resources :photos
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -12,7 +10,9 @@ Groupphoto::Application.routes.draw do
     end
   end
 
- resources :albums
+ resources :albums do
+   resources :photos;
+ end
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'

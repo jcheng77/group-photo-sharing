@@ -8,6 +8,7 @@
   </tr>
 
 <% @albums.each do |album| %>
+  <tr><%= album.title %> </tr>
   <tr>
     <td><%= link_to 'Show', album %></td>
     <td><%= link_to 'Edit', edit_album_path(album) %></td>

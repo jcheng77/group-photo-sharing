@@ -2,10 +2,10 @@ class AlbumsController < ApplicationController
   # GET /albums
   # GET /albums.json
   def index
-   # @albums = Album.all
-    album1 = { :album_id => 123, :photo_num => 10, :creator => 'jcheng7', :creation_date => Time.now , :cover_photo => 333, :description => 'the very first album' }
-    album2 = { :album_id => 222, :photo_num => 20, :creator => 'jcheng', :creation_date => Time.now , :cover_photo => 233, :description => 'the second album' }
-    @albums = [ album1, album2 ]
+    @albums = Album.all
+    #album1 = { :album_id => 123, :photo_num => 10, :creator => 'jcheng7', :creation_date => Time.now , :cover_photo => 333, :description => 'the very first album' }
+    #album2 = { :album_id => 222, :photo_num => 20, :creator => 'jcheng', :creation_date => Time.now , :cover_photo => 233, :description => 'the second album' }
+    #@albums = [ album1, album2 ]
 
     respond_to do |format|
       format.html # index.html.erb
