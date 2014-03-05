@@ -8,12 +8,10 @@
   </tr>
 
 <% @albums.each do |album| %>
-  <tr><%= album.title %> </tr>
   <tr>
-    <td><%= link_to 'Show', album %></td>
-    <td><%= link_to 'Edit', edit_album_path(album) %></td>
-    <td><%= link_to 'Destroy', album, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
+    <td> <%= album.title %> </td>
+  <td>  <%= link_to image_tag(album.cover.file.url(:medium)), album %> </td>
+  <td> <%= link_to 'Add Photos', new_album_photo_path(album) %> </td>
 <% end %>
 </table>
 

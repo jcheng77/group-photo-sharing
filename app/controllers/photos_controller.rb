@@ -45,7 +45,8 @@ class PhotosController < ApplicationController
   # POST /photos.json
   def create
    @album = Album.find(params[:album_id])
-    @photo = @album.photos.build(params[:photo])
+   @photo = @album.photos.build(params[:photo])
+   @album.cover ||= @photo._id
 
 
     respond_to do |format|
