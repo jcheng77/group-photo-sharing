@@ -11,8 +11,9 @@ Groupphoto::Application.routes.draw do
   end
 
  resources :albums do
-   resources :photos;
+   resources :photos
  end
+
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
@@ -60,7 +61,7 @@ Groupphoto::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'photos#index'
+  root :to => 'albums#index'
   
 
   # See how all your routes lay out with "rake routes"

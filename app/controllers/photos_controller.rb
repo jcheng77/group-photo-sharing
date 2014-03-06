@@ -4,6 +4,7 @@ class PhotosController < ApplicationController
   def index
     @album = Album.find(params[:album_id])
     @photos = @album.photos
+    @photo = Photo.new
    # @images = Dir.glob("app/assets/images/*.jpg")
    # pic_hash = @images.first(10).map { |i| {:pic_url => i}}
    # @photos = pic_hash.each_with_index.map {|i,v| {:photo_id => v.to_s + "1" }.merge(i) }
@@ -46,7 +47,8 @@ class PhotosController < ApplicationController
   # POST /photos.json
   def create
    @album = Album.find(params[:album_id])
-   @photo = @album.photos.build(params[:photo])
+   #@photo = @album.photos.build(params[:photo])
+   @photo = @album.photos.create(params[:photo])
    @album.cover ||= @photo._id
 
 
@@ -54,6 +56,7 @@ class PhotosController < ApplicationController
       if @photo.save
         format.html { redirect_to @album, notice: 'Photo was successfully created.' }
         format.json { render json: @photo, status: :created, location: @photo }
+        format.js
       else
         format.html { render action: "new" }
         format.json { render json: @photo.errors, status: :unprocessable_entity }

@@ -6,6 +6,5 @@ Title: <%= @album.title %>
 <%= image_tag photo.file.url(:medium) %>
 <% end %>
 
-<%= link_to 'Add Photos', new_album_photo_path(@album) %> |
-<%= link_to 'Edit', edit_album_path(@album) %> |
+
 <%= link_to 'Back', albums_path %>

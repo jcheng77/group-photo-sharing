@@ -1,17 +1,8 @@
 <h1>Listing photos</h1>
 
-<table>
-  <tr>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<div id="photos">
+<%= render @photos %>
+</div>
 
-<% @photos.each do |photo| %>
-  <tr><%= image_tag photo.file.url(:medium) %></tr>
-<% end %>
-</table>
 
-<br />
-
-<%= link_to 'New Photo', new_photo_path %>
+<%= render 'form' %>

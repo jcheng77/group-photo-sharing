@@ -10,9 +10,6 @@
       </ul>
     </div>
   <% end %>
-   <%= f.file_field :file%>
+   <%= f.file_field :file, multiple: true, name:"photo[file]"  %>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+  <% end %>
