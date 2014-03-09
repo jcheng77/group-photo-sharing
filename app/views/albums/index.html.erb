@@ -11,6 +11,7 @@
   <tr>
     <td> <%= album.title %> </td>
   <td>  <%= link_to image_tag(album.cover.file.url(:medium)), album_photos_path(album) %> </td>
+  <td>  Likes: <%= album.likes.to_i.to_s %> </td>
   <td> <%= link_to 'Add Photos', new_album_photo_path(album) %> </td>
 <% end %>
 </table>

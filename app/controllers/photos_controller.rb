@@ -91,4 +91,14 @@ class PhotosController < ApplicationController
       format.json { head :ok }
     end
   end
+
+  def vote
+    @album = Album.find(params[:album_id])
+    @photo = Photo.find(params[:id])
+    unless current_user.voted_for?(@photo)
+      @photo.liked_by current_user
+      @album.add_one_like
+    end
+  end
+
 end

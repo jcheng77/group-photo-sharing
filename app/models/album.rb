@@ -7,4 +7,11 @@ class Album < ActiveRecord::Base
     self.attributes.merge({"numOfPic" => self.photos.size, "cover_id" => self.cover.id})
   end
 
+  def add_one_like
+    self.likes ||= 0
+    self.likes += 1
+    puts self.likes
+    self.save
+  end
+
 end
