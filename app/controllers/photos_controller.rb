@@ -53,7 +53,7 @@ class PhotosController < ApplicationController
 
 
     respond_to do |format|
-      if @photo.save
+      if @photo.save && @photo.exif_read
         format.html { redirect_to @album, notice: 'Photo was successfully created.' }
         format.json { render json: @photo, status: :created, location: @photo }
         format.js
