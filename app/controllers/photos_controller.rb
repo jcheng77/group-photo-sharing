@@ -49,7 +49,7 @@ class PhotosController < ApplicationController
    @album = Album.find(params[:album_id])
    #@photo = @album.photos.build(params[:photo])
    @photo = @album.photos.create(params[:photo])
-   @album.cover ||= @photo._id
+   @album.cover_id ||= @photo._id
 
 
     respond_to do |format|

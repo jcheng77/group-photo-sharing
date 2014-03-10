@@ -36,6 +36,7 @@ class AlbumsController < ApplicationController
   # GET /albums/1/edit
   def edit
     @album = Album.find(params[:id])
+    @photos = @album.photos
   end
 
   # POST /albums
@@ -59,8 +60,9 @@ class AlbumsController < ApplicationController
   def update
     @album = Album.find(params[:id])
 
+
     respond_to do |format|
-      if @album.update_attributes(params[:album])
+      if @album.update_attributes(params[:album]) && @album.save
         format.html { redirect_to @album, notice: 'Album was successfully updated.' }
         format.json { head :ok }
       else
@@ -81,4 +83,5 @@ class AlbumsController < ApplicationController
       format.json { head :ok }
     end
   end
+
 end
