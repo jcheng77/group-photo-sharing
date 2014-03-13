@@ -5,10 +5,25 @@
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+<script src="../assets/javascripts/masonry.min.js"></script>  
+<script src="../assets/javascripts/album.js"></script>  
 </head>
 <body>
-
-<%= yield %>
-
+  <div style="display:none">  <%= yield %> </div> 
+<div class='header'>
+ <div class='topbar'><image src='/assets/logo.jpg'></image><div class='title'></div>
+ </div>
+</div>
+ <div class='cover'>
+  <div class='coverImg'>
+   <image class='coverImg'src='/assets/cover.JPG'></image>
+  </div>
+ </div>
+</div>
+<div id='container' class='container'>
+ <div class='heading'>
+ 	<h3>SF NEWS</h3>
+ </div>
+	<!--<%= yield %> --></div>
 </body>
 </html>

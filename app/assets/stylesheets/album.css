@@ -1,0 +1,74 @@
+/*
+ * This is a manifest file that'll automatically include all the stylesheets available in this directory
+ * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
+ * the top of the compiled file, but it's generally better to create a new file per style scope.
+ *= require_self
+ *= require_tree . 
+*/
+body{
+	background-color: #ebebeb;
+	margin:0px;
+}
+.item{
+/*  max-width: 25%;*/
+
+}
+.item.w2{
+	width:50%;
+}
+.p1{
+	
+	width:25%;
+	float:left;
+	overflow: hidden;
+}
+.p2{
+	
+	width:50%;
+	float:left;
+	overflow: hidden;
+}
+.P3{
+	height: 190px;
+	overflow: hidden;
+}
+.coverImg{
+	width:1265px;
+	height:447px;
+	overflow: hidden;
+}
+
+.container{
+	max-width:1240px;
+	min-width: 999px;
+
+}
+.topbar{
+	height:48px;
+	background-color: black;
+	opacity: 0.8;
+}
+.wrapper{
+	width:100%;
+	height:429px
+}
+.cover{
+	height:497px;
+	width:1265px;
+	background-color: white;
+	box-shadow: 0 3px 6px gray;
+	margin-top:-47px;
+}
+.title{
+	color:white;
+	margin:10px 20px 0px 30px;
+	font-family:serif;
+	height:15px;
+}
+figure{
+	-webkit-margin-start:30px;
+}
+
+.heading{
+	padding:20px 0;
+}
