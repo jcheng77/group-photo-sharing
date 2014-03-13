@@ -1,0 +1,33 @@
+<%= form_for(@album) do |f| %>
+  <% if @album.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@album.errors.count, "error") %> prohibited this album from being saved:</h2>
+
+      <ul>
+      <% @album.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+    <%= f.text_field :title %>
+    <p>
+Choose a cover:
+  <select name="album[cover_id]" class="image-picker show-html">
+    <% @photos.each do |photo| %>
+      <option data-img-src="<%= photo.file.url(:medium) %>" value="<%= photo.id %>"></option>
+<% end %>
+  </select>
+  </p>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<script type="text/javascript">
+
+    jQuery("select.image-picker").imagepicker({
+            hide_select:  true,
+});
+</script>

@@ -1,3 +1,26 @@
-<% @images.each do |img| %>
-  <%= image_tag "#{img.split('/').last}" , :size => "800x600"%>
+<h1>Listing photos</h1>
+
+<div id="photos">
+  <% @photos.each do |photo| %>
+    <%= render :partial => 'photo' , :object => photo %>
 <% end %>
+</div>
+
+<select class="image-picker show-html">
+    <option value=""></option>
+    <option data-img-src="http://placekitten.com/300/200" value="1">Cute Kitten 1</option>
+    <option data-img-src="http://placekitten.com/150/200" value="2">Cute Kitten 2</option>
+    <option data-img-src="http://placekitten.com/400/200" value="3">Cute Kitten 3</option>
+  </select>
+
+
+<%= render 'form' %>
+
+<script type="text/javascript">
+
+    jQuery("select.image-picker").imagepicker({
+            hide_select:  true,
+});
+</script>
+
+
