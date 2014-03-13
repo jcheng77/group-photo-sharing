@@ -2,7 +2,7 @@ class Album < ActiveRecord::Base
   has_many :photos
 
   def json
-    self.attributes.merge({"numOfPic" => self.photos.size, "cover_url" => cover.file.url })
+    self.attributes.merge({"numOfPic" => self.photos.size, "cover_url" => cover.nil? ? nil : cover.file.url })
   end
 
   def cover
