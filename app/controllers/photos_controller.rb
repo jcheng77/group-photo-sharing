@@ -49,11 +49,11 @@ class PhotosController < ApplicationController
    @album = Album.find(params[:album_id])
    #@photo = @album.photos.build(params[:photo])
    @photo = @album.photos.create(params[:photo])
-   @album.cover_id ||= @photo._id
+   @album.cover_id ||= @photo.id
 
 
     respond_to do |format|
-      if @photo.save && @photo.exif_read
+      if @photo.save & @album.save #&& @photo.exif_read
         format.html { redirect_to @album, notice: 'Photo was successfully created.' }
         format.json { render json: @photo, status: :created, location: @photo }
         format.js

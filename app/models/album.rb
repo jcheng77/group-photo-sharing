@@ -2,11 +2,11 @@ class Album < ActiveRecord::Base
   has_many :photos
 
   def json
-    self.attributes.merge({"numOfPic" => self.photos.size})
+    self.attributes.merge({"numOfPic" => self.photos.size, "cover_url" => cover.file.url })
   end
 
   def cover
-    Photo.find(self.cover_id || self.photos.first.id)
+    Photo.find(self.cover_id) if self.cover_id
   end
 
   def add_one_like

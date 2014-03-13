@@ -5,8 +5,6 @@
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
-<script src="../assets/javascripts/masonry.min.js"></script>  
-<script src="../assets/javascripts/album.js"></script>  
 </head>
 <body>
 
@@ -18,7 +16,6 @@
       <%= link_to "Sign up", new_user_registration_path %> |
     <%= link_to "Login", new_user_session_path %>
   <% end %>
-  <div style="display:none">  <%= yield %> </div> 
 <div class='header'>
  <div class='topbar'><image src='/assets/logo.jpg'></image><div class='title'></div>
  </div>
@@ -32,5 +29,7 @@
 <div id='container' class='container'>
  <div class='heading'>
  	<h3>SF NEWS</h3>
- </div></body>
+</div>
+  <%= yield %> 
+</body>
 </html>

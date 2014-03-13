@@ -1,18 +1,15 @@
 <h1>Listing albums</h1>
 
 <table>
-  <tr>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
 
 <% @albums.each do |album| %>
   <tr>
     <td> <%= album.title %> </td>
-  <td>  <%= link_to image_tag(album.cover.file.url(:medium)), album_photos_path(album) %> </td>
+    <% if album.cover %>
+      <td>  <%= link_to image_tag(album.cover.file.url ,size: '400x400'), album_photos_path(album) %> </td>
+<% end %>
   <td>  Likes: <%= album.likes.to_i.to_s %> </td>
-  <td> <%= link_to 'Add Photos', new_album_photo_path(album) %> </td>
+  <td> <%= link_to 'Add Photos', album_photos_path(album) %> </td>
 <% end %>
 </table>
 

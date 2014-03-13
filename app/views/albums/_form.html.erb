@@ -14,8 +14,10 @@
     <p>
 Choose a cover:
   <select name="album[cover_id]" class="image-picker show-html">
+    <% if @photos %>
     <% @photos.each do |photo| %>
       <option data-img-src="<%= photo.file.url(:medium) %>" value="<%= photo.id %>"></option>
+    <% end %>
 <% end %>
   </select>
   </p>
