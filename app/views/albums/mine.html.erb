@@ -1,0 +1,10 @@
+<% @albums.each do |album| %>
+  <tr>
+    <td> <%= album.title %> </td>
+    <% if album.cover %>
+      <td>  <%= link_to image_tag(album.cover.file.url ,size: '400x400'), album_photos_path(album) %> </td>
+<% end %>
+  <td>  Likes: <%= album.likes.to_i.to_s %> </td>
+  <td> <%= link_to 'Add Photos', album_photos_path(album) %> </td>
+<% end %>
+

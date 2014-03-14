@@ -1,4 +1,6 @@
 class AlbumsController < ApplicationController
+  before_filter :authenticate_user!, except: [:index, :show]
+
   # GET /albums
   # GET /albums.json
   def index
@@ -43,6 +45,7 @@ class AlbumsController < ApplicationController
   # POST /albums.json
   def create
     @album = Album.new(params[:album])
+    @album.user = current_user
 
     respond_to do |format|
       if @album.save
@@ -81,6 +84,15 @@ class AlbumsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to albums_url }
       format.json { head :ok }
+    end
+  end
+
+  def mine
+    @albums = current_user.albums
+
+    respond_to do |format|
+      format.html
+      format.json
     end
   end
 

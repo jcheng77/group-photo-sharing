@@ -12,14 +12,16 @@ Groupphoto::Application.routes.draw do
     end
   end
 
- resources :albums do
-   resources :photos do
-     member do
-       post 'vote'
-     end
-   end
- end
-
+  resources :albums do
+    collection do
+      get 'mine'
+    end
+    resources :photos do
+      member do
+        post 'vote'
+      end
+    end
+  end
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
