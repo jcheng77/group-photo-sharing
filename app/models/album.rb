@@ -1,6 +1,6 @@
 class Album < ActiveRecord::Base
   has_many :photos
-  belongs_to :user
+  has_and_belongs_to_many :user
 
   def json
     self.attributes.merge({"numOfPic" => self.photos.size, "cover_url" => cover.nil? ? nil : cover.file.url })
@@ -15,6 +15,10 @@ class Album < ActiveRecord::Base
     self.likes += 1
     puts self.likes
     self.save
+  end
+
+  def add_participator(u)
+    self.user << u
   end
 
 end

@@ -51,6 +51,7 @@ class PhotosController < ApplicationController
    #@photo = @album.photos.build(params[:photo])
    @photo = @album.photos.create(params[:photo])
    @album.cover_id ||= @photo.id
+   @album.add_participator(current_user)
 
 
     respond_to do |format|
