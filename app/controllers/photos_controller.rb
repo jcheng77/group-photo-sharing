@@ -6,14 +6,16 @@ class PhotosController < ApplicationController
     @album = Album.find(params[:album_id])
     @photos = @album.photos
     @photo = Photo.new
+    @album.add_one_view
+
    # @images = Dir.glob("app/assets/images/*.jpg")
    # pic_hash = @images.first(10).map { |i| {:pic_url => i}}
    # @photos = pic_hash.each_with_index.map {|i,v| {:photo_id => v.to_s + "1" }.merge(i) }
 
     respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @photos }
-    end
+        format.html # index.html.erb
+        format.json { render json: @photos }
+      end
   end
 
   # GET /photos/1

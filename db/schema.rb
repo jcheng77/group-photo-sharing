@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140315150224) do
+ActiveRecord::Schema.define(:version => 20140316170304) do
 
   create_table "albums", :force => true do |t|
     t.string   "title"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(:version => 20140315150224) do
     t.integer  "likes"
     t.integer  "cover_id"
     t.integer  "user_id"
+    t.integer  "views"
   end
 
   create_table "albums_users", :id => false, :force => true do |t|

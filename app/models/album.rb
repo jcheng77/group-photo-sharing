@@ -21,4 +21,14 @@ class Album < ActiveRecord::Base
     self.user << u
   end
 
+  def add_one_view
+    begin
+      self.views ||= 0
+      self.views += 1
+      self.save
+    rescue => e
+      logger.warn "didn't add view count for album #{self.id} -- ignore: #{e}"
+    end
+  end
+
 end
