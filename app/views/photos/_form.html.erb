@@ -10,8 +10,9 @@
       </ul>
     </div>
   <% end %>
+  <% unless current_user.nil? %>
    <%= f.file_field :file, multiple: true, name:"photo[file]"  %>
-
+  <% end %>
   <% end %>
 
 <script id="template-upload" type="text/x-tmpl">
