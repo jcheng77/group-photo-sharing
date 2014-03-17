@@ -18,7 +18,7 @@ class Album < ActiveRecord::Base
   end
 
   def add_participator(u)
-    self.user << u
+    self.user << u unless self.user.include?(u)
   end
 
   def add_one_view
