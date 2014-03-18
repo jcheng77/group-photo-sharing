@@ -9,8 +9,10 @@ body{
 .item.w2{
 	width:50%;
 }
+.p1, .p2, .p3{
+	position: relative;
+}
 .p1{
-	
 	width:25%;
 	float:left;
 	overflow: hidden;
@@ -64,4 +66,30 @@ figure{
 
 .heading{
 	padding:20px 0;
+}
+
+.image{
+	height:394px;
+}
+.imageH{
+	height:187px;
+}
+header{
+	height:30px;
+	background:black;
+    width: 100%;
+    left:30px;
+    bottom:16px;
+    position: absolute;
+}
+h1{
+	margin-top:8px;
+	margin-left:3px;
+	color:white;
+	font-size: 16px;
+	font-weight: normal;
+}
+
+.headerH{
+	bottom:0px;
 }
