@@ -76,7 +76,7 @@ figure{
 }
 header{
 	height:30px;
-	background:black;
+/*    background: url(/assets/header.png);*/
     width: 100%;
     left:30px;
     bottom:16px;
