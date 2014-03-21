@@ -14,5 +14,9 @@ class Photo < ActiveRecord::Base
     self.update_attributes(:datetime_original => p[:datetimeoriginal] , :image_size => p[:imagesize])
   end
 
+  def json
+    self.attributes.merge("url" => self.file.url)
+  end
+
 
 end
