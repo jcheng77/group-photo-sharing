@@ -1,7 +1,7 @@
 
 window.onload=function(){
 var imageList=new Array();
-var local=document.location.toString();
+var local=document.location.origin;
 var imageList2=document.getElementsByClassName('item');
 var container = document.getElementById('container');
 var html=[];
@@ -17,12 +17,12 @@ $.ajax({
             }
         }
     });
-var hrefInsert="<a href='"+local+"albums/";
+var hrefInsert="<a href='"+local+"/albums/";
 var divString="<div style='width:100%;height:429px;position:relative;'>";
 var divP1String="<div class='p1'>";
 var divP2String="<div class='p2'>";
 var divP3String="<div class='p3'>";
-
+imageList.unshift("");
 while(this.listNum+1<imageList.length){
 	var flag=imageList.length-this.listNum-1;
 	if(flag<9){
@@ -106,6 +106,7 @@ inserthtml= html+divString+divP2String+
 "<figure>"+hrefInsert+imageList[this.listNum+2].id+"/photos'>"+
    "<img class='image' src='"+imageList[listNum+2].cover_url+"'></a></figure>"+
    "<header><h1>"+imageList[this.listNum+2].title+"</h1></header></div></div>";this.listNum=listNum+2;
+this.listNum=listNum+2;
 return inserthtml;
 }
 
