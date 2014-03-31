@@ -4,7 +4,8 @@ class PhotosController < ApplicationController
   # GET /photos.json
   def index
     @album = Album.find(params[:album_id])
-    @photos = @album.photos.map { |p| p.json }
+    @photos = @album.photos
+    @photos_j = @album.photos.map { |p| p.json }
     @photo = Photo.new
     @album.add_one_view
 
