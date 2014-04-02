@@ -13,10 +13,20 @@ class AlbumsController < ApplicationController
     end
   end
 
+  def search
+    @albums = Album.search(params[:key])
+    
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @albums}
+    end
+  end
+
   # GET /albums/1
   # GET /albums/1.json
   def show
     @album = Album.find(params[:id])
+    @url = request.host_with_port + request.fullpath
 
     respond_to do |format|
       format.html # show.html.erb

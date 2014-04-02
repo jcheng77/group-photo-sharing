@@ -13,6 +13,8 @@ $.ajax({
         dataType : "json",
         success : function(json){ 
             for(var i=0;i<json.length;i++){
+                console.log(json);
+                console.log(json[i]);
                  imageList.push(json[i]);
             }
         }

@@ -17,6 +17,8 @@ gem "devise"
 gem 'acts_as_votable', '~> 0.8.0'
 gem 'pry' , :group => :development
 gem 'pry-nav', :group => :development
+#gem 'rqrcode_png'
+gem 'goqr'
 
 # Gems used only for assets and not required
 # in production environments by default.

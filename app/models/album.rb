@@ -1,6 +1,9 @@
 class Album < ActiveRecord::Base
+  include Rails.application.routes.url_helpers
   has_many :photos
   has_and_belongs_to_many :user
+
+
 
   def json
     self.attributes.merge({"numOfPic" => self.photos.size, "cover_url" => cover.nil? ? nil : cover.file.url })
@@ -8,6 +11,14 @@ class Album < ActiveRecord::Base
 
   def cover
     Photo.find(self.cover_id) if self.cover_id
+  end
+
+  def self.search(key)
+    if key
+      find(:all, :conditions => ['title LIKE ?', "%#{key}%"])
+    else
+      find(:all)
+    end
   end
 
   def add_one_like
@@ -29,6 +40,11 @@ class Album < ActiveRecord::Base
     rescue => e
       logger.warn "didn't add view count for album #{self.id} -- ignore: #{e}"
     end
+  end
+
+  def qr_code_img(url)
+    qr = RQRCode::QRCode.new( url, :size => 4, :level => :h )
+    return qr.to_img
   end
 
 end

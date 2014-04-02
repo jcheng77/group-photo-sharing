@@ -6,15 +6,16 @@ Groupphoto::Application.routes.draw do
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
-  resources :photos do
-    collection do
-      get 'get_album'
-    end
-  end
+  #resources :photos do
+  #  collection do
+  #    get 'get_album'
+  #  end
+  #end
 
   resources :albums do
     collection do
       get 'mine'
+      get 'search'
     end
     resources :photos do
       member do

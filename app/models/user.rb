@@ -12,4 +12,9 @@ class User < ActiveRecord::Base
   acts_as_voter
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
+
+  def avatar_photo_url
+    self.avatar.blank? ? self.avatar_url : self.avatar.url
+  end
+
 end
