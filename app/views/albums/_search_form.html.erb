@@ -1,0 +1,4 @@
+<%= form_tag search_albums_path, :method => 'get' do %>
+  <%= text_field_tag :key, params[:key] %>
+  <%= submit_tag "搜索", :name => nil %>
+<% end %>
