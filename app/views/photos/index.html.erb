@@ -1,9 +1,7 @@
 <h1>Listing photos</h1>
 
 <div id="photos">
-  <% @photos.each do |photo| %>
-    <%= render :partial => 'photo' , :object => photo %>
-<% end %>
+  <%= render @photos %>
 </div>
 
 <%= render 'form' %>

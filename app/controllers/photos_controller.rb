@@ -15,7 +15,7 @@ class PhotosController < ApplicationController
 
     respond_to do |format|
         format.html # index.html.erb
-        format.json { render json: @photos }
+        format.json { render json: @photos_j }
       end
   end
 
@@ -55,13 +55,14 @@ class PhotosController < ApplicationController
    @photo = @album.photos.create(params[:photo])
    @album.cover_id ||= @photo.id
    @album.add_participator(current_user)
+   @photo.exif_read
 
 
-    respond_to do |format|
-      if @photo.save & @album.save #&& @photo.exif_read
+   respond_to do |format|
+      if @photo.save && @album.save
         format.html { redirect_to @album, notice: 'Photo was successfully created.' }
         format.json { render json: @photo, status: :created, location: @photo }
-        format.js
+        format.js 
       else
         format.html { render action: "new" }
         format.json { render json: @photo.errors, status: :unprocessable_entity }

@@ -15,7 +15,15 @@ class Photo < ActiveRecord::Base
   end
 
   def json
-    self.attributes.merge("url" => self.file.url)
+    self.attributes.merge("url" => self.file.url, "image_scale" => scale )
+  end
+
+
+  def scale
+    unless self.image_size.nil?
+      height, weight = self.image_size.split('x')
+      "1 :" + ( weight.to_f / height.to_f ).round(2).to_s
+    end
   end
 
 
